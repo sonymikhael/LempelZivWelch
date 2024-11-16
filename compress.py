@@ -1,3 +1,20 @@
+'''
+Name: Sony Mikhael Fampulme
+ID #: 248469
+CSCI 201 UV2
+Lempel Ziv Welch Algorithm
+Sample Implementation of the Lempel Ziv Welch Algorithm
+********************************************************************************
+I hereby attest to the truth of the following facts:
+
+1. I have not discussed the python code in my program with anyone other than my instructor of the teaching assistants assigned to this course.
+
+2. I have not used python code obtained from another student, or any other unauthorized source, whether modified or unmodified.
+
+3. If any python code of documentation used in my program was obtained from another source, it has been clearly noted with citations in the comments of my program.
+********************************************************************************
+'''
+
 class LZWCompressor:
     def __init__(self):
         self.dictionary = {}
@@ -41,9 +58,6 @@ class LZWCompressor:
                     self.dictionary[rec] = value
                 output_file.write(self.dictionary[rec])
                 if not (len(string) == 0) and next_code < self.MAX_SIZE:
-                    # print('the string is', string)
-                    # print('next_code is now', next_code)
-
                     key = next_code.to_bytes(2, byteorder='little')
                     value = string + (self.dictionary[rec][0].to_bytes(1, byteorder='little'))
                     self.dictionary[key] = value
@@ -74,7 +88,6 @@ class LZWCompressor:
                         self.dictionary[wK] = self.dictionary_size
                         self.dictionary_size += 1
                     w = K
-            print('size of dictionary', len(self.dictionary))
 
 
 def main():
